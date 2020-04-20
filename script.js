@@ -70,4 +70,34 @@ function showNew(){
 
 nouveau.addEventListener('click',showNew);
 
+let foot = document.querySelector('.foot')
+
+let date = new Date().getFullYear();
+let copyright = `${date} © ROMY KLK`;
+
+foot.textContent = "ROMY KLK";
+
+foot.innerHTML = `${date} © ROMY KLK`;
+
+let info = document.querySelector('.infojour');
+
+let dateActuelle = new Date();
+
+
+let dateLocale = dateActuelle.toLocaleString(navigator.language, {
+  weekday: 'long', 
+  year: 'numeric', 
+  month: 'long',
+  day: 'numeric', 
+  hour: 'numeric', 
+  minute: 'numeric',
+  second: 'numeric'
+});
+
+
+
+info.innerHTML = `Nous sommes le ${dateLocale}`;
+info.style.color = "white";
+info.style.textAlign = "center"
+
 
