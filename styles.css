@@ -1,38 +1,82 @@
 html, body {
-    background:#dff9fb;
-    background: -webkit-linear-gradient(to right,#7ed6df,#22a6b3);
-    background: linear-gradient(to right,#7ed6df,#22a6b3);
-    height: 95%;
-    min-width: 500px;
-  }
-  
-  #citation {
-    font-size: 2em;
-    font-family: 'Satisfy', curve;
-    line-height: 1.3em;
-    letter-spacing: 1px;
-  }
-  
-  #citation:before {
-      content: open-quote;
-  }
-  
-  #citation:after {
-      content: close-quote;
-  }
-  
-  #auteur {
-    font-size: 1.5em;
-    font-style: italic;
-  }
-  
-  #nouveau {
-    background:#badc58;
-    background: -webkit-linear-gradient(to right,#74b9ff, #0984e3);
-    background: linear-gradient(to right,#74b9ff, #0984e3);
-    cursor: pointer;
-  }
+  background:#dff9fb;
+  background: -webkit-linear-gradient(to right,#7ed6df,#22a6b3);
+  background: linear-gradient(to right,#7ed6df,#22a6b3);
+  height: 95%;
+  min-width: 500px;
+}
 
-  footer{
-      background-color:#2d3436;
-  }
+#citation {
+  font-size: 2em;
+  font-family: 'Satisfy', curve;
+  line-height: 1.3em;
+  letter-spacing: 1px;
+}
+
+#citation:before {
+  content: open-quote;
+}
+
+#citation:after {
+  content: close-quote;
+}
+
+#auteur {
+  font-size: 1.5em;
+  font-style: italic;
+}
+
+#nouveau {
+  background:#badc58;
+  background: -webkit-linear-gradient(to right,#74b9ff, #0984e3);
+  background: linear-gradient(to right,#74b9ff, #0984e3);
+}
+
+footer{
+  background-color:#2d3436;
+}
+
+/** METEO**/
+
+#ville {
+  text-transform: uppercase;
+}
+
+#temperature {
+  font-size: 4em;
+}
+
+#changer {
+  background: rgba(178, 223, 251, .3);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.temp{
+  background: #2980B9;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+  background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9);
+  height: 50%;
+  width: 50%;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+
+strong{
+  color: tomato
+}
+
+/** BTC**/
+
+h1 {
+  color: #272343;
+}
+
+#price {
+  font-size: 4em;
+}
+
+.devise{
+  color: white;
+}

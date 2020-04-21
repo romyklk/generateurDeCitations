@@ -101,3 +101,91 @@ info.style.color = "white";
 info.style.textAlign = "center"
 
 
+
+
+////// METEO///////
+
+
+
+
+
+let ville = "Paris";
+obtenirTemp(ville)
+
+//console.log(meteo);
+
+let maVille = document.querySelector('#changer');
+
+maVille.addEventListener('click',()=>{
+    ville = prompt("Entrez votre ville");
+    obtenirTemp(ville);
+})
+
+
+function obtenirTemp(ville){
+    const meteo = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=1c060e144d6d64ff968d2638e4fb1b77&units=metric';
+
+
+let meteoReq = new XMLHttpRequest();
+
+meteoReq.open('GET',meteo);
+
+meteoReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+meteoReq.responseType = 'json';
+
+meteoReq.send();
+
+meteoReq.onload = function(){
+    if(meteoReq.readyState === XMLHttpRequest.DONE){
+        if(meteoReq.status == 200){
+            let reponseMeteo = meteoReq.response;
+            let temperature = reponseMeteo.main.temp;
+            let ville = reponseMeteo.name;
+            document.querySelector('#temperature_label').textContent = temperature;
+            document.querySelector('#ville').textContent = ville;
+            console.log(reponseMeteo)
+        }else{
+            alert('Un probleme est survenu.Merci de revenir ultérieuement pour obtenir les prévisions')
+        }
+    }
+}
+}
+
+
+
+//BTC////
+
+const url = 'https://blockchain.info/ticker';
+
+function btcPrice(){
+
+let requette = new XMLHttpRequest();
+
+requette.open('GET',url);
+
+
+requette.responseType = 'json';
+
+requette.send();
+
+requette.onload = function(){
+    if(requette.readyState === XMLHttpRequest.DONE){
+        if(requette.status==200){
+            let retour = requette.response; 
+            let prixEuro = retour.EUR.last
+            let prixCfa = prixEuro * 655.957;
+            document.querySelector('#price_label').textContent = prixEuro;
+            document.querySelector('#price_label').style.color = 'white';
+            document.querySelector('#price_labelcfa').textContent = prixCfa.toFixed(2);
+            document.querySelector('#price_labelcfa').style.color = 'white';
+        }else{
+            alert('Un problème est survenu.Merci de revenir plus tard.')
+        }
+    }
+}
+}
+
+setInterval(btcPrice,1000);
+
+

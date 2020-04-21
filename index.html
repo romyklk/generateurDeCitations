@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,65 @@
     <title>Générateur de citations</title>
 </head>
 <body>
+
+  <div class="container-fluid">
+    <div class="container temp">
+  
+      <div class="row justify-content-center">
+        
+        <div class="col-md-8">
+          <!-- Titre -->
+          <h1 class="text-center mt-5">Météo</h1>
+          
+          <!-- Ville / Temperature -->
+          <div class="text-center">
+            <span id="ville">paris</span>
+            
+            <div id="temperature">
+              <span id="temperature_label">
+                xx.x
+              </span> °C
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="row justify-content-center">  
+        <div class="col-md-8 text-center">
+          <!-- Changer de ville -->
+          <div id="changer" class="mt-2 text-center p-3 text-white font-weight-bold text-uppercase d-inline-block">
+            Changer de ville
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <!--BTC-->
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="text-center mt-5">Bitcoin en € <small>Prix actualisé il y a 1 sec</small></h1>
+        
+        
+        <div id="price" class="text-center">
+          <span id="price_label">xxxx.xx</span> <span class="devise">€</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h1 class="text-center mt-5">Bitcoin en CFA <small>Prix actualisé il y a 1 sec</small></h1>
+
+        
+        <div id="price" class="text-center">
+          <span id="price_labelcfa">xxxx.xx</span> <span class="devise">CFA</span>
+        </div>
+      </div>
+    </div>
+    <!--FIN BTC-->
+
+  </div>
+
     <div class="container h-100">
   
         <div class="row align-items-center justify-content-center h-100">
