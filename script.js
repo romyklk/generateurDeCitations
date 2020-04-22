@@ -107,10 +107,53 @@ info.style.textAlign = "center"
 
 
 
+let ville ;
+
+//verifier si la géolocalisation est disponible
+
+if('geolocation' in navigator){
+
+    navigator.geolocation.watchPosition((maPosition)=>{
+
+        const meteo = 'https://api.openweathermap.org/data/2.5/weather?lon=' + maPosition.coords.longitude + '&lat=' 
+        + maPosition.coords.latitude + '&appid=1c060e144d6d64ff968d2638e4fb1b77&units=metric';
+        console.log(meteo)
 
 
-let ville = "Paris";
-obtenirTemp(ville)
+        let meteoReq = new XMLHttpRequest();
+        
+        meteoReq.open('GET',meteo);
+        
+        meteoReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        
+        meteoReq.responseType = 'json';
+        
+        meteoReq.send();
+        
+        meteoReq.onload = function(){
+            if(meteoReq.readyState === XMLHttpRequest.DONE){
+                if(meteoReq.status == 200){
+                    let reponseMeteo = meteoReq.response;
+                    let temperature = reponseMeteo.main.temp;
+                    let ville = reponseMeteo.name;
+                    document.querySelector('#temperature_label').textContent = temperature;
+                    document.querySelector('#ville').textContent = ville;
+                    console.log(reponseMeteo)
+                }else{
+                    alert('Un probleme est survenu.Merci de revenir ultérieuement pour obtenir les prévisions')
+                }
+            }
+        }
+
+    },leserreurs,options);
+}else{
+    ville = lyon;
+    obtenirTemp(ville);
+}
+
+var options= {
+    enableHighAccuracy: true
+}
 
 //console.log(meteo);
 
@@ -121,6 +164,10 @@ maVille.addEventListener('click',()=>{
     obtenirTemp(ville);
 })
 
+function leserreurs(){
+    ville = "lyon";
+    obtenirTemp(ville);
+}
 
 function obtenirTemp(ville){
     const meteo = 'https://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=1c060e144d6d64ff968d2638e4fb1b77&units=metric';
@@ -151,6 +198,7 @@ meteoReq.onload = function(){
     }
 }
 }
+
 
 
 

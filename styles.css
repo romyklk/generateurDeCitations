@@ -30,6 +30,7 @@ html, body {
   background:#badc58;
   background: -webkit-linear-gradient(to right,#74b9ff, #0984e3);
   background: linear-gradient(to right,#74b9ff, #0984e3);
+  cursor: pointer; 
 }
 
 footer{
@@ -60,6 +61,7 @@ footer{
   width: 50%;
   border-radius: 20px;
   margin-top: 1rem;
+  cursor: pointer; 
 }
 
 
